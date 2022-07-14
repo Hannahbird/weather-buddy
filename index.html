@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,700&family=Roboto:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="./assets/css/styles.css" rel="stylesheet"></link>
+</head>
+<body>
+    <header class="banner">
+        <h1> <strong>Weather Buddy </strong></h1>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <h2><strong>Search for a City:</strong></h2>
+                    <input class="form-control" type="text" placeholder="Salt Lake City"/><br/>
+                    <button id="searchBtn" type="search" class="btn btn-primary">Search</button>
+                    <div class="saveSearch"></div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="row currentWeather border border-dark">
+                        <div class="col-12 col-header">
+                        </div>
+                        <div class="col-12 col-tempValues">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3></h3>
+                        </div>
+                    <div class="row futureForcast">
+                        <div class="col-12 col-md-2 nextDay card">
+                        </div>
+                        <div class="col-12 col-md-2 nextDay card">
+                        </div>
+                        <div class="col-12 col-md-2 nextDay card">
+                        </div>
+                        <div class="col-12 col-md-2 nextDay card">
+                        </div>
+                        <div class="col-12 col-md-2 nextDay card">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
