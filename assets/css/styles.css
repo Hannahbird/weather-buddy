@@ -1,9 +1,17 @@
 :root {
     --banner-color: linear-gradient(90deg, rgb(30, 144, 255), rgb(55, 0, 120));
+    --good-color: green;
+    --medium-color: yellow;
+    --high-color: crimson;
+    --background-color: light rgb(170, 170, 170);
 }
 * {
     font-family: sans-serif;
     margin: 0;
+}
+
+body {
+background-color: var(--background-color);
 }
 
 .banner {
@@ -53,6 +61,31 @@ h3 {
     opacity: 0;
 }
 
+.Good, .Medium, .High {
+    border-radius: 10%;
+    border-style: inset;
+}
+
+.Good {
+    background-color: var(--good-color);
+    margin-left: 1vh;
+    width: 8vh;
+    color: white;
+}
+
+.Medium {
+    background-color: var(--medium-color);
+    margin-left: 1vh;
+    width: 8vh;
+}
+
+.High {
+    background-color: var(--high-color);
+    color: white;
+    margin-left: 1vh;
+    width: 8vh;
+}
+
 .cityHeader {
     align-content: left;
     padding-top: 1vh;
@@ -75,8 +108,8 @@ h3 {
 
 .card {
     border: none;
-    color: white;
-    background-color: rgb(48, 51, 84);
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 255, 234);
     margin-bottom: 1vh;
 }
 
