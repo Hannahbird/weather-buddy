@@ -1,0 +1,90 @@
+:root {
+    --banner-color: linear-gradient(90deg, rgb(30, 144, 255), rgb(55, 0, 120));
+}
+* {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+.banner {
+    background: var(--banner-color);
+    height: 10vh;
+    margin-bottom: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    color: white;
+    font-weight: 500;
+}
+
+div input {
+    width: 100%;
+    outline-style: solid;
+    outline-width: 0.5px;
+    height: 5vh;
+}
+
+h3 {
+    padding-top: 2vh;
+}
+
+.btn {
+    width: 100%;
+    opacity: 1;
+}
+
+.btn:hover {
+    opacity: 2;
+}
+
+#searchBtn {
+    margin-bottom: 3vh;
+}
+
+.saveSearch {
+    padding-top: 3vh;
+    border-top: solid 1px black;
+}
+
+.currentWeather {
+    opacity: 0;
+}
+
+.cityHeader {
+    align-content: left;
+    padding-top: 1vh;
+    padding-left: 1vh;
+    margin-bottom: 0px;
+}
+
+.list-group-item {
+    padding-left: 1vh;
+    border: none;
+    padding-top: 0.5vh;
+}
+
+.futureForcast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: none;
+    color: white;
+    background-color: rgb(48, 51, 84);
+    margin-bottom: 1vh;
+}
+
+.card-title {
+    font-weight: bold;
+    padding-top: 1vh;
+}
+
+.btn-secondary {
+    margin-bottom: 2vh;
+}
