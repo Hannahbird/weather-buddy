@@ -22,7 +22,9 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 ## Live application
+hannahbird.github.io_weather-buddy_.png
 
 ## Repo link
-
+https://github.com/Hannahbird/weather-buddy
 ## Deployed link
+https://hannahbird.github.io/weather-buddy/
