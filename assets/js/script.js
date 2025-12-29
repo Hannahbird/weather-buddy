@@ -17,29 +17,8 @@ var retrieveData = function (city) {
 				response.json().then(function (data) {
 					var lat = data.coord.lat;
 					var lon = data.coord.lon;
-					// UV stat
-					var url2 =
-						"https://api.openweathermap.org/data/2.5/onecall?lat=" +
-						lat +
-						"&lon=" +
-						lon +
-						"&appid=" +
-						myAPIKey +
-						"&units=imperial";
-					fetch(url2)
-						.then(function (response) {
-							if (response.ok) {
-								response.json().then(function (data) {
-									// input todays forcast
-									displayToday(data, city);
-								});
-							} else {
-								alert("City Not Found");
-							}
-						})
-						.catch(function (error) {
-							alert("Cannot Reach Open Weather");
-						});
+					// display current weather from the weather endpoint
+					displayToday(data, city);
 					// forecast info
 					var url3 =
 						"https://api.openweathermap.org/data/2.5/forecast/?lat=" +
@@ -122,17 +101,14 @@ var displayToday = function (data, city) {
 	headerRemove();
 	dayTempRemove();
 	saveCity(city);
-	var temp = data.current.temp;
-	var date = moment(data.current.date_text).format(
-		"MM" + "/" + "DD" + "/" + "YYYY"
-	);
+	var temp = data.main.temp;
+	var date = moment().format("MM" + "/" + "DD" + "/" + "YYYY");
 	var city = city;
-	var wind = data.current.wind_speed;
-	var icon = data.current.weather[0].icon;
-	var humidity = data.current.humidity;
-	var uvi = data.current.uvi;
+	var wind = data.wind.speed;
+	var icon = data.weather[0].icon;
+	var humidity = data.main.humidity;
 	headerAppend(date, city, icon);
-	dayTempAppend(temp, wind, humidity, uvi);
+	dayTempAppend(temp, wind, humidity);
 };
 var headerRemove = function () {
 	$(".cityHeader").remove();
@@ -155,12 +131,12 @@ var headerAppend = function (date, city, icon) {
 var dayTempRemove = function () {
 	$(".list-group").remove();
 };
-var dayTempAppend = function (temp, wind, humidity, uvi) {
+var dayTempAppend = function (temp, wind, humidity) {
 	var tempValsEl = document.querySelector(".col-tempValues");
 	var listEl = document.createElement("ul");
 	listEl.classList = "list-group";
-	var dataList = [temp, wind, humidity, uvi];
-	//loop through data 
+	var dataList = [temp, wind, humidity];
+	//loop through data
 	for (var i = 0; i < dataList.length; i++) {
 		var itemListEl = document.createElement("li");
 		itemListEl.classList = "list-group-item";
@@ -170,17 +146,6 @@ var dayTempAppend = function (temp, wind, humidity, uvi) {
 			itemListEl.textContent = "Wind: " + dataList[i] + " MPH";
 		} else if (i === 2) {
 			itemListEl.textContent = "Humidity: " + dataList[i] + " %";
-		} else {
-			if (parseInt(dataList[i]) <= 2) {
-				itemListEl.innerHTML =
-					"UV Index:<button class='Good'>" + uvi + "</button>";
-			} else if (parseInt(dataList[i]) <= 5) {
-				itemListEl.innerHTML =
-					"UV Index:<button class='Medium'>" + uvi + "</button>";
-			} else if (7.0 < parseInt(dataList[i])) {
-				itemListEl.innerHTML =
-					"UV Index:<button class='High'>" + uvi + "</button>";
-			}
 		}
 		listEl.appendChild(itemListEl);
 	}
